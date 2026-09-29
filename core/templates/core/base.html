@@ -189,6 +189,103 @@
             font-weight: 700;
             color: #1d2d4b;
         }
+
+        .accessibility-btn {
+            border: 2px solid #1268f3;
+            background: #ffffff;
+            color: #1268f3;
+            border-radius: 10px;
+            padding: 9px 14px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-right: 22px;
+        }
+
+        .accessibility-btn:hover {
+            background: #eaf3ff;
+        }
+
+        body.high-contrast {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .sidebar,
+        body.high-contrast .topbar,
+        body.high-contrast .card-soft {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+
+        body.high-contrast .content,
+        body.high-contrast .page {
+            background: #000000 !important;
+        }
+
+        body.high-contrast .page-title,
+        body.high-contrast .page-subtitle,
+        body.high-contrast .metric-label,
+        body.high-contrast .metric-help,
+        body.high-contrast .form-label,
+        body.high-contrast .text-muted,
+        body.high-contrast small,
+        body.high-contrast strong,
+        body.high-contrast h1,
+        body.high-contrast h2,
+        body.high-contrast h3,
+        body.high-contrast h4,
+        body.high-contrast p,
+        body.high-contrast td,
+        body.high-contrast th {
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .brand,
+        body.high-contrast .brand span,
+        body.high-contrast a {
+            color: #ffff00 !important;
+        }
+
+        body.high-contrast .nav-link-custom {
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .nav-link-custom.active,
+        body.high-contrast .nav-link-custom:hover {
+            background: #ffff00 !important;
+            color: #000000 !important;
+        }
+
+        body.high-contrast .form-control,
+        body.high-contrast .form-select,
+        body.high-contrast textarea {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border: 2px solid #ffffff !important;
+        }
+
+        body.high-contrast .btn-primary-bsos {
+            background: #ffff00 !important;
+            color: #000000 !important;
+            border: 2px solid #ffff00 !important;
+        }
+
+        body.high-contrast .accessibility-btn {
+            background: #ffff00 !important;
+            color: #000000 !important;
+            border-color: #ffff00 !important;
+        }
+
+        body.high-contrast .table {
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .table td,
+        body.high-contrast .table th {
+            border-color: #ffffff !important;
+        }
+
     </style>
 </head>
 
@@ -211,6 +308,15 @@
 
     <div class="content">
         <header class="topbar">
+
+            <button
+                id="contrastToggle"
+                class="accessibility-btn"
+                type="button"
+                aria-pressed="false"
+                aria-label="Ativar modo de alto contraste">
+                Alto contraste
+            </button>
             <div class="user-box">
                 <div class="avatar">JS</div>
                 <div>
@@ -226,5 +332,33 @@
     </div>
 
 </div>
+
+<script>
+    const contrastButton = document.getElementById("contrastToggle");
+
+    function updateContrastButton() {
+        const enabled = document.body.classList.contains("high-contrast");
+        contrastButton.setAttribute("aria-pressed", enabled ? "true" : "false");
+        contrastButton.textContent = enabled
+            ? "Contraste normal"
+            : "Alto contraste";
+    }
+
+    if (localStorage.getItem("bsosHighContrast") === "true") {
+        document.body.classList.add("high-contrast");
+    }
+
+    updateContrastButton();
+
+    contrastButton.addEventListener("click", function () {
+        document.body.classList.toggle("high-contrast");
+
+        const enabled = document.body.classList.contains("high-contrast");
+        localStorage.setItem("bsosHighContrast", enabled ? "true" : "false");
+
+        updateContrastButton();
+    });
+</script>
+
 </body>
 </html>
