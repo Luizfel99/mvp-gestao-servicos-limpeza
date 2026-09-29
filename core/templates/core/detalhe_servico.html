@@ -1,0 +1,125 @@
+{% extends "core/base.html" %}
+
+{% block title %}Detalhes do serviço | BSOS Clean{% endblock %}
+
+{% block content %}
+
+<div class="mb-4">
+    <div class="text-muted mb-2">Serviços › Detalhes</div>
+    <h1 class="page-title">Detalhes do serviço</h1>
+    <p class="page-subtitle">
+        Acompanhe as informações e o status do atendimento.
+    </p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-lg-8">
+
+        <div class="card-soft p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <h3 class="mb-1">Ocean View Apt 204</h3>
+                    <span class="text-muted">Serviço #SRV-1024</span>
+                </div>
+
+                <span class="badge rounded-pill badge-soft-blue px-3 py-2">
+                    Agendado
+                </span>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <small class="text-muted">Cliente</small>
+                    <div class="fw-bold mt-1">Imobiliária Sol Nascente</div>
+                </div>
+
+                <div class="col-md-6">
+                    <small class="text-muted">Profissional responsável</small>
+                    <div class="fw-bold mt-1">Ana Lima</div>
+                </div>
+
+                <div class="col-md-6">
+                    <small class="text-muted">Data</small>
+                    <div class="fw-bold mt-1">14/10/2026</div>
+                </div>
+
+                <div class="col-md-6">
+                    <small class="text-muted">Horário</small>
+                    <div class="fw-bold mt-1">10:00 - 13:00</div>
+                </div>
+
+            </div>
+
+            <hr class="my-4">
+
+            <div>
+                <small class="text-muted">Observações</small>
+                <p class="mt-2 mb-0">
+                    Levar kit completo e verificar reposição de papel toalha.
+                </p>
+            </div>
+        </div>
+
+        <div class="card-soft p-4">
+            <h3 class="mb-4">Atualizar status</h3>
+
+            <label class="form-label">Status do atendimento</label>
+
+            <select class="form-select mb-3">
+                <option selected>Agendado</option>
+                <option>Em andamento</option>
+                <option>Concluído</option>
+            </select>
+
+            <div class="d-flex justify-content-end">
+                <button class="btn-primary-bsos">
+                    Salvar alteração
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card-soft p-4 mb-4">
+            <h3 class="mb-4">Andamento</h3>
+
+            <div class="mb-4">
+                <div class="fw-bold text-primary">✓ Serviço criado</div>
+                <small class="text-muted">28/09/2026 às 19:45</small>
+            </div>
+
+            <div class="mb-4">
+                <div class="fw-bold text-primary">✓ Profissional atribuído</div>
+                <small class="text-muted">Ana Lima</small>
+            </div>
+
+            <div>
+                <div class="fw-bold text-muted">○ Aguardando execução</div>
+                <small class="text-muted">
+                    O atendimento ainda não foi iniciado.
+                </small>
+            </div>
+        </div>
+
+        <div class="card-soft p-4">
+            <h4>Próxima ação</h4>
+
+            <p class="text-muted">
+                O profissional deverá iniciar o serviço no horário programado.
+            </p>
+
+            <a href="{% url 'core:dashboard' %}"
+               class="btn btn-outline-primary w-100">
+                Voltar para a agenda
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

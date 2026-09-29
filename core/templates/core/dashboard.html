@@ -1,0 +1,202 @@
+{% extends "core/base.html" %}
+
+{% block title %}Agenda de serviços | BSOS Clean{% endblock %}
+{% block nav_home %}active{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+        <h1 class="page-title">Agenda de serviços</h1>
+        <p class="page-subtitle">Gerencie e acompanhe todos os serviços de limpeza</p>
+    </div>
+
+    <a href="{% url 'core:novo_servico' %}" class="btn-primary-bsos">
+        + Novo serviço
+    </a>
+</div>
+
+<div class="row g-4 mb-4">
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-soft metric-card">
+            <div class="metric-number text-primary">8</div>
+            <div class="metric-label">serviços hoje</div>
+            <div class="metric-help">Total agendados para hoje</div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-soft metric-card">
+            <div class="metric-number text-success">2</div>
+            <div class="metric-label">em andamento</div>
+            <div class="metric-help">Serviços sendo executados</div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-soft metric-card">
+            <div class="metric-number text-danger">1</div>
+            <div class="metric-label">prioridade alta</div>
+            <div class="metric-help">Requer atenção especial</div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-soft metric-card">
+            <div class="metric-number">5</div>
+            <div class="metric-label">concluídos</div>
+            <div class="metric-help">Serviços finalizados hoje</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card-soft p-4 mb-4">
+    <div class="row g-3">
+
+        <div class="col-md-4">
+            <label class="form-label">Data</label>
+            <input type="date" class="form-control" value="2026-09-28">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Profissional</label>
+            <select class="form-select">
+                <option>Todos os profissionais</option>
+                <option>Carla Pinto</option>
+                <option>Rafael Souza</option>
+                <option>Ana Martins</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Status</label>
+            <select class="form-select">
+                <option>Todos os status</option>
+                <option>Agendado</option>
+                <option>Em andamento</option>
+                <option>Concluído</option>
+            </select>
+        </div>
+
+    </div>
+</div>
+
+<div class="card-soft p-4">
+    <div class="table-responsive">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>Horário</th>
+                    <th>Imóvel / Local</th>
+                    <th>Profissional</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <strong>08:00 – 10:00</strong><br>
+                        <small class="text-muted">28/09/2026</small>
+                    </td>
+
+                    <td>
+                        <strong>Condomínio Vista Verde</strong><br>
+                        <small class="text-muted">Rua das Palmeiras, 320</small>
+                    </td>
+
+                    <td>Carla Pinto</td>
+
+                    <td>
+                        <span class="badge rounded-pill badge-soft-blue px-3 py-2">
+                            Agendado
+                        </span>
+                    </td>
+
+                    <td>
+                        <a href="{% url 'core:detalhe_servico' %}" class="text-decoration-none">Ver detalhes</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>09:00 – 12:00</strong><br>
+                        <small class="text-muted">28/09/2026</small>
+                    </td>
+
+                    <td>
+                        <strong>Edifício Solar</strong><br>
+                        <small class="text-muted">Av. Central, 1450</small>
+                    </td>
+
+                    <td>Rafael Souza</td>
+
+                    <td>
+                        <span class="badge rounded-pill badge-soft-green px-3 py-2">
+                            Em andamento
+                        </span>
+                    </td>
+
+                    <td>
+                        <a href="{% url 'core:detalhe_servico' %}" class="text-decoration-none">Ver detalhes</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>11:00 – 13:00</strong><br>
+                        <small class="text-muted">28/09/2026</small>
+                    </td>
+
+                    <td>
+                        <strong>Residential Barcelona</strong><br>
+                        <small class="text-muted">Rua Girona, 88</small>
+                    </td>
+
+                    <td>Ana Martins</td>
+
+                    <td>
+                        <span class="badge rounded-pill badge-soft-red px-3 py-2">
+                            Prioridade alta
+                        </span>
+                    </td>
+
+                    <td>
+                        <a href="{% url 'core:detalhe_servico' %}" class="text-decoration-none">Ver detalhes</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>15:00 – 17:00</strong><br>
+                        <small class="text-muted">28/09/2026</small>
+                    </td>
+
+                    <td>
+                        <strong>Casa Família Costa</strong><br>
+                        <small class="text-muted">Rua das Flores, 225</small>
+                    </td>
+
+                    <td>Carla Pinto</td>
+
+                    <td>
+                        <span class="badge rounded-pill badge-soft-green px-3 py-2">
+                            Concluído
+                        </span>
+                    </td>
+
+                    <td>
+                        <a href="{% url 'core:detalhe_servico' %}" class="text-decoration-none">Ver detalhes</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

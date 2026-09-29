@@ -1,0 +1,150 @@
+{% extends "core/base.html" %}
+
+{% block title %}Novo serviço | BSOS Clean{% endblock %}
+
+{% block content %}
+
+<div class="mb-4">
+    <div class="text-muted mb-2">Serviços › Novo serviço</div>
+    <h1 class="page-title">Novo serviço</h1>
+    <p class="page-subtitle">Cadastre um novo serviço de limpeza na agenda da equipe.</p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-lg-8">
+        <div class="card-soft p-4">
+
+            <h3 class="mb-4">Informações do serviço</h3>
+
+            <form>
+
+                <div class="mb-3">
+                    <label class="form-label">Cliente *</label>
+                    <select class="form-select">
+                        <option>Imobiliária Sol Nascente</option>
+                        <option>Marina Costa</option>
+                        <option>Lucas Almeida</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Propriedade *</label>
+                    <select class="form-select">
+                        <option>Ocean View Apt 204</option>
+                        <option>Downtown Condo</option>
+                        <option>Bay House</option>
+                    </select>
+                </div>
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label class="form-label">Data *</label>
+                        <input type="date" class="form-control" value="2026-10-14">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Horário *</label>
+                        <select class="form-select">
+                            <option>10:00 - 13:00</option>
+                            <option>13:00 - 16:00</option>
+                            <option>16:00 - 19:00</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row g-3 mt-1">
+
+                    <div class="col-md-6">
+                        <label class="form-label">Profissional responsável *</label>
+                        <select class="form-select">
+                            <option>Ana Lima</option>
+                            <option>Carla Pinto</option>
+                            <option>Rafael Souza</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Status inicial *</label>
+                        <select class="form-select">
+                            <option>Agendado</option>
+                            <option>Em andamento</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+                    <label class="form-label">Observações</label>
+                    <textarea class="form-control" rows="4">Levar kit completo e verificar reposição de papel toalha.</textarea>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{% url 'core:dashboard' %}" class="btn btn-outline-secondary px-4">
+                        Cancelar
+                    </a>
+
+                    <button type="button" class="btn-primary-bsos">
+                        Salvar serviço
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card-soft p-4">
+
+            <h3 class="mb-4">Resumo do serviço</h3>
+
+            <p>
+                <strong>Cliente</strong><br>
+                <span class="text-muted">Imobiliária Sol Nascente</span>
+            </p>
+
+            <p>
+                <strong>Propriedade</strong><br>
+                <span class="text-muted">Ocean View Apt 204</span>
+            </p>
+
+            <p>
+                <strong>Data</strong><br>
+                <span class="text-muted">14/10/2026</span>
+            </p>
+
+            <p>
+                <strong>Horário</strong><br>
+                <span class="text-muted">10:00 - 13:00</span>
+            </p>
+
+            <p>
+                <strong>Profissional responsável</strong><br>
+                <span class="text-muted">Ana Lima</span>
+            </p>
+
+            <p>
+                <strong>Status</strong><br>
+                <span class="badge rounded-pill badge-soft-blue px-3 py-2 mt-1">
+                    Agendado
+                </span>
+            </p>
+
+            <div class="p-3 mt-4 rounded-3" style="background:#eef6ff;">
+                <strong>Após salvar</strong>
+                <div class="text-muted mt-1">
+                    O serviço será adicionado à agenda e ficará disponível para acompanhamento.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
