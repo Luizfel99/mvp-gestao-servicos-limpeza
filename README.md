@@ -29,3 +29,14 @@ O projeto utiliza uma arquitetura monolítica em camadas, separando apresentaç�
 ## Status
 
 Em desenvolvimento.
+
+## Estrutura do MVP
+
+O projeto utiliza Django com arquitetura monolítica em camadas. O app `core` concentra os modelos e fluxos principais do domínio, enquanto os templates reutilizam `base.html` para manter navegação, identidade visual e estrutura de página consistentes.
+
+As telas principais do protótipo são:
+- Agenda de serviços
+- Cadastro de novo serviço
+- Detalhes e acompanhamento do serviço
+
+O banco PostgreSQL é utilizado para persistência e o projeto mantém separação entre configuração do projeto, regras do app e camada de apresentação.
